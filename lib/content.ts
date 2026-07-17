@@ -1,0 +1,183 @@
+// ---------------------------------------------------------------------------
+// Content model + seed data.
+//
+// This mirrors the design brief verbatim and acts as the source of truth for
+// the Supabase seed (see supabase/seed.sql) AND as the runtime fallback when
+// Supabase env vars are not configured, so the site always renders.
+// ---------------------------------------------------------------------------
+
+export type Profile = {
+  name: string;
+  tagline: string;
+  intro: string;
+  resumeUrl: string;
+  headshotUrl: string;
+};
+
+export type ExperienceBullet = {
+  text: string;
+  highlight?: boolean; // renders the terracotta award ribbon
+};
+
+export type Experience = {
+  logoUrl: string;
+  logoAlt: string;
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  bullets: ExperienceBullet[];
+};
+
+export type PmProject = {
+  slug: string;
+  name: string;
+  description: string;
+  role: string;
+  tools: string;
+  outcome: string;
+};
+
+export type AiProject = {
+  slug: string;
+  name: string;
+  description: string;
+  techStack: string;
+  caseStudy: string;
+};
+
+export type Certification = {
+  title: string;
+  issuer: string;
+  date: string;
+  issuedBy: string;
+};
+
+export type Contact = {
+  linkedin: string;
+  email: string;
+  phone: string;
+};
+
+export const profile: Profile = {
+  name: "Deeksha Hulyal",
+  tagline: "Product Thinker, Rooted in Security, Growing with AI",
+  intro:
+    "Cybersecurity Intelligence Analyst turned aspiring Product Manager — I bring risk-aware thinking, structured problem-solving, and a builder's curiosity for AI to product teams.",
+  resumeUrl: "/resume.pdf",
+  headshotUrl: "/headshot.jpg",
+};
+
+export const about = {
+  paragraphs: [
+    "I started my career in cybersecurity, where I learned to sit calmly with ambiguity — turning vague, high-stakes signals into clear, structured intelligence that people could actually act on.",
+    "Over time I realized the part I loved most wasn't the threat itself; it was the thinking around it: framing the real problem, weighing risk against impact, and shaping decisions that moved teams forward. That's product management.",
+    "Now I'm channelling risk-aware judgment and a builder's curiosity for AI into product work — exploring how thoughtful, well-scoped tools can quietly remove friction from the way people evaluate and decide.",
+  ],
+  pullQuote:
+    "Security taught me to ask the sharpest question in the room before reaching for an answer.",
+};
+
+export const experience: Experience[] = [
+  {
+    logoUrl: "/zerofox-logo.png",
+    logoAlt: "ZeroFox logo",
+    title: "Cybersecurity Intelligence Analyst",
+    company: "ZeroFox",
+    location: "Bengaluru",
+    period: "January 2025 – August 2025",
+    bullets: [
+      {
+        text: "Defined and scoped 50+ intelligence briefs from ambiguous requirements, collaborating with stakeholders to deliver insights that influenced product decisions and reduced response time by 30%.",
+      },
+      {
+        text: "Synthesized complex technical data into strategic product recommendations, preparing reports adopted by C-suite, engineering, and client teams — contributing to a 25% improvement in stakeholder engagement.",
+      },
+      {
+        text: "Applied risk-based prioritization frameworks to triage and resolve high-impact threats under strict SLAs, mirroring product backlog management and improving team throughput by 20%.",
+      },
+      {
+        text: "Awarded the Pinnacle Award for leading critical mitigation of a malicious activity, demonstrating decisive leadership and product-oriented problem solving during high-stress incidents.",
+        highlight: true,
+      },
+    ],
+  },
+];
+
+export const pmProjects: PmProject[] = [
+  {
+    slug: "tripadvisor-qreview",
+    name: "Tripadvisor — QReview (Scan and Review)",
+    description:
+      "A feature that lets travelers scan QR codes at venues to instantly give structured ratings and quick reviews in exchange for redeemable “TACoins,” simplifying the review process and boosting platform engagement.",
+    role: "Product Manager (Growth & Engagement)",
+    tools: "Similarweb (traffic analytics & secondary research), UI/UX wireframing tools",
+    outcome:
+      "Reduced user friction and drop-offs, increased platform traffic, boosted secondary bookings via TACoins — tracked via North Star Metric: number of reviews posted per month.",
+  },
+  {
+    slug: "cult-nutrition",
+    name: "Cult : Nutrition",
+    description:
+      "A personalized nutrition profiling and meal-planning subscription feature designed to build a holistic health ecosystem and drive cross-selling revenue through Eat.fit pre-orders.",
+    role: "Product Manager (Growth Team)",
+    tools: "Figma (user journey mapping, interactive wireframing)",
+    outcome:
+      "Created a new subscription model targeting retention and trial conversion, reduced acquisition costs via cross-orders — tracked via North Star Metric: revenue generated by pre-orders from the Nutrition vertical.",
+  },
+  {
+    slug: "swiggy-homeyum",
+    name: "Swiggy HomeYum",
+    description:
+      "A hyperlocal marketplace within the Swiggy app connecting users with verified home-chefs for healthy, subscription-based native cuisine deliveries.",
+    role: "Product Manager (New Product Vertical / Expansion)",
+    tools: "Prototyping software, system architecture/design tools",
+    outcome:
+      "Projected annual revenue potential of ₹1,080 Cr (~$130M), enabled home-chefs to earn ~₹25,200/month, captured a new health-conscious user segment — tracked via North Star Metric: number of successful subscription meals delivered per week.",
+  },
+];
+
+export const aiProjects: AiProject[] = [
+  {
+    slug: "ai-client-readiness",
+    name: "AI-Powered Client Readiness & Assessment Tool",
+    description:
+      "An AI-driven evaluation platform that standardizes technical and domain readiness assessments through context-aware questioning, automated rubrics, and objective manager dashboards.",
+    techStack: "Python, OpenAI API / LLMs, Vector Databases, Proctoring & Analytics APIs",
+    caseStudy:
+      "Led 0→1 development; designed modular knowledge bases and role-skill mapping; results included 40% faster ramp-up, 30% reduction in manager evaluation time, 80%+ completion on micro-assessments, and 60%+ reduction in manual evaluation effort — adopted by a major e-commerce enterprise client.",
+  },
+  {
+    slug: "ai-data-storytelling",
+    name: "AI-Powered Data Storytelling Platform",
+    description:
+      "A collaborative platform that transforms raw, fragmented business data into interactive, AI-driven narrative stories to streamline insight-to-decision workflows.",
+    techStack:
+      "Figma (advanced interactive prototyping), Python, LLM orchestration (e.g. LangChain), Data/BI visualization APIs",
+    caseStudy:
+      "Led a 3-member team to deliver a validated prototype in 7 working days; mapped the “golden path” from data retrieval to final presentation; delivered 4 fully interactive flows; prototype became a launchpad for fundraising and enterprise user testing.",
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    title: "AI-First Product Management",
+    issuer: "Airtribe",
+    date: "Completed December 16, 2025",
+    issuedBy: "Issued by Navneet Sharma, Co-Founder @ Airtribe",
+  },
+];
+
+export const contact: Contact = {
+  linkedin: "https://www.linkedin.com/in/deeksha-hulyal-a569b3191/",
+  email: "rhdeeksha072@gmail.com",
+  phone: "+91-8105838963",
+};
+
+export const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Certifications", href: "#certifications" },
+  { label: "Contact", href: "#contact" },
+];

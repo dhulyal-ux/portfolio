@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Headshot placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B7C3AC"/>
+      <stop offset="1" stop-color="#8A9A7E"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <circle cx="200" cy="160" r="66" fill="#F5F1E8" opacity="0.92"/>
+  <path d="M96 330c0-58 47-96 104-96s104 38 104 96" fill="#F5F1E8" opacity="0.92"/>
+  <text x="200" y="376" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#4A5D42" opacity="0.85">Add headshot.jpg</text>
+</svg>
