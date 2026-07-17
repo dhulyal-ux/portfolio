@@ -1,0 +1,12 @@
+# Netlify build config for Next.js (App Router).
+# The Next.js runtime plugin is installed automatically by Netlify when it
+# detects Next; it handles the publish directory and SSR/ISR functions.
+[build]
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Set these in the Netlify UI (Site settings → Environment variables), NOT here:
+#   NEXT_PUBLIC_SUPABASE_URL
+#   NEXT_PUBLIC_SUPABASE_ANON_KEY

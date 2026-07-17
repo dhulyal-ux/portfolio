@@ -19,6 +19,10 @@ import {
   getCertifications,
 } from "@/lib/data";
 
+// Re-fetch CMS content from Supabase every 5 minutes (ISR), so edits in the
+// database appear without a redeploy. Falls back to seed content when unset.
+export const revalidate = 300;
+
 export default async function Home() {
   const [experience, pmProjects, aiProjects, certifications] = await Promise.all([
     getExperience(),
