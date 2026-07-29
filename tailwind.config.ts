@@ -11,9 +11,12 @@ const config: Config = {
         // Earthy palette — exact hexes from the design brief
         cream: "#F5F1E8", // base background: warm beige / off-white
         paper: "#FBF8F1", // soft card surface, a shade lighter than cream
-        sage: "#8A9A7E", // primary accent: soft sage green
+        ember: "#C85A2C", // NEW primary brand: earthy burnt orange (fused from clay)
+        "ember-dark": "#A8481F", // hover state for ember fills
+        "ember-soft": "#F0D9C9", // tinted ember for chips/tags on light surfaces
+        sage: "#8A9A7E", // support accent: soft sage green
         "sage-dark": "#788869", // hover state for sage fills
-        olive: "#4A5D42", // secondary accent: deeper olive/forest green
+        olive: "#4A5D42", // support accent: deeper olive/forest green
         "olive-dark": "#3C4C36", // hover state for olive fills
         charcoal: "#2B2A26", // text: warm charcoal, never pure black
         clay: "#C4A484", // supporting neutral: soft terracotta / clay
@@ -22,6 +25,7 @@ const config: Config = {
       fontFamily: {
         serif: ["var(--font-fraunces)", "Georgia", "serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       borderRadius: {
         // Soft ~8–12px radius for buttons & cards

@@ -22,7 +22,7 @@ export default function ProjectAccordion({ project }: { project: PmProject }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={panelId}
-        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-sage transition-colors hover:text-olive"
+        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-ember transition-colors hover:text-ember-dark"
       >
         {open ? "Hide Case Study" : "View Case Study"}
         <ChevronIcon

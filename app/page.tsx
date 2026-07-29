@@ -38,51 +38,82 @@ export default async function Home() {
         {/* ---------------------------------------------------------------- */}
         {/* HERO */}
         {/* ---------------------------------------------------------------- */}
-        <section className="relative overflow-hidden">
-          {/* soft organic shapes behind hero, very low opacity */}
+        <section className="relative overflow-hidden bg-ember text-cream">
+          {/* soft tonal shapes, very low opacity — keeps the orange field alive */}
           <div aria-hidden className="pointer-events-none absolute inset-0">
-            <div className="absolute -right-24 -top-24 h-[26rem] w-[26rem] rounded-full bg-sage/10 blur-3xl" />
-            <div className="absolute -left-28 top-40 h-80 w-80 rounded-full bg-clay/10 blur-3xl" />
-            <LeafSilhouette className="absolute right-[-3rem] top-24 h-72 w-72 text-sage/[0.07]" />
+            <div className="absolute -right-32 -top-40 h-[32rem] w-[32rem] rounded-full bg-cream/[0.07] blur-3xl" />
+            <div className="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-charcoal/[0.06] blur-3xl" />
           </div>
 
-          <div className="section-shell relative flex flex-col items-center gap-10 pb-16 pt-16 text-center sm:pt-20 md:flex-row md:items-center md:gap-14 md:pb-24 md:pt-24 md:text-left">
-            <Reveal className="shrink-0" as="div">
-              <div className="relative mx-auto h-52 w-52 sm:h-60 sm:w-60 md:h-72 md:w-72">
-                <div className="absolute inset-0 -rotate-3 rounded-[2rem] bg-sage/15" />
+          {/* LinkedIn chip, top-right */}
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+            className="absolute right-6 top-20 z-20 flex h-10 w-10 items-center justify-center rounded-xl bg-cream text-ember shadow-paper transition-transform duration-300 hover:-translate-y-0.5 sm:right-8"
+          >
+            <LinkedInIcon className="h-5 w-5" />
+          </a>
+
+          <div className="section-shell relative grid items-center gap-10 pb-10 pt-28 md:grid-cols-[1.1fr_0.9fr] md:gap-10 md:pt-32">
+            {/* text column */}
+            <Reveal as="div">
+              <p className="eyebrow mb-5 text-cream/75">Product Management · AI · Security</p>
+              <h1 className="font-serif text-[3.25rem] font-medium leading-[0.92] tracking-tight text-cream sm:text-7xl md:text-[5.25rem]">
+                {profile.name.split(" ")[0]}
+                <br />
+                {profile.name.split(" ").slice(1).join(" ")}
+              </h1>
+              <p className="mt-6 max-w-md font-serif text-xl italic text-cream/90 sm:text-2xl">
+                {profile.tagline}
+              </p>
+              <p className="mt-6 max-w-md leading-relaxed text-cream/80">{profile.intro}</p>
+            </Reveal>
+
+            {/* framed portrait */}
+            <Reveal as="div" delay={140} className="relative">
+              <div className="relative mx-auto w-full max-w-[20rem]">
+                <span
+                  aria-hidden
+                  className="absolute -left-3 -top-3 h-14 w-14 border-l-2 border-t-2 border-cream/70"
+                />
+                <span
+                  aria-hidden
+                  className="absolute -bottom-3 -right-3 h-14 w-14 border-b-2 border-r-2 border-cream/70"
+                />
                 <SmartImage
                   src={profile.headshotUrl}
                   fallback="/placeholder-headshot.svg"
                   alt={`${profile.name}, portrait`}
-                  className="relative h-full w-full rounded-[2rem] object-cover shadow-paper"
+                  className="relative aspect-[4/5] w-full rounded-[1.25rem] object-cover object-top shadow-paper-lift"
                 />
               </div>
             </Reveal>
+          </div>
 
-            <Reveal className="flex-1" as="div" delay={120}>
-              <p className="eyebrow mb-4">Product Management · AI · Security</p>
-              <h1 className="font-serif text-4xl leading-[1.08] text-olive sm:text-5xl md:text-6xl">
-                {profile.name}
-              </h1>
-              <p className="mt-4 font-serif text-lg italic text-sage sm:text-xl md:text-2xl">
-                {profile.tagline}
-              </p>
-              <p className="mx-auto mt-6 max-w-xl text-[1.02rem] text-charcoal/75 md:mx-0">
-                {profile.intro}
-              </p>
-              <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row md:items-start">
-                <a href="#projects" className="btn-primary w-full sm:w-auto">
-                  View Projects
-                  <ArrowDownIcon />
-                </a>
-                <a
-                  href={profile.resumeUrl}
-                  download
-                  className="btn-secondary w-full sm:w-auto"
-                >
-                  Download Resume
-                  <DownloadIcon />
-                </a>
+          {/* floating cream card — role + CTAs, overlapping the section base */}
+          <div className="section-shell relative z-10 pb-20 md:pb-28">
+            <Reveal delay={220}>
+              <div className="rounded-card bg-cream p-6 text-charcoal shadow-paper-lift sm:p-8">
+                <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="eyebrow mb-2">Currently</p>
+                    <p className="font-serif text-lg text-olive sm:text-xl">
+                      Cybersecurity Intelligence Analyst, moving into Product Management
+                    </p>
+                  </div>
+                  <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+                    <a href="#projects" className="btn-primary w-full sm:w-auto">
+                      View Projects
+                      <ArrowDownIcon />
+                    </a>
+                    <a href={profile.resumeUrl} download className="btn-secondary w-full sm:w-auto">
+                      Download Resume
+                      <DownloadIcon />
+                    </a>
+                  </div>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -102,7 +133,7 @@ export default async function Home() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <blockquote className="mt-10 border-l-2 border-sage pl-6 font-serif text-xl italic leading-snug text-sage sm:text-2xl">
+              <blockquote className="mt-10 border-l-2 border-ember pl-6 font-serif text-xl italic leading-snug text-ember sm:text-2xl">
                 “{about.pullQuote}”
               </blockquote>
             </Reveal>
@@ -131,8 +162,8 @@ export default async function Home() {
                     />
                   </div>
                   <h3 className="mt-5 font-serif text-2xl text-olive">{job.title}</h3>
-                  <p className="mt-1 text-sm font-medium text-charcoal/60">
-                    {job.company} &nbsp;|&nbsp; {job.location} &nbsp;|&nbsp; {job.period}
+                  <p className="mt-2 font-mono text-[0.8rem] tracking-tight text-charcoal/55">
+                    {job.company} &nbsp;/&nbsp; {job.location} &nbsp;/&nbsp; {job.period}
                   </p>
 
                   <ul className="mt-6 space-y-4">
@@ -140,7 +171,7 @@ export default async function Home() {
                       <li key={j} className="flex gap-3">
                         <span
                           aria-hidden
-                          className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-sage"
+                          className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-ember"
                         />
                         <p className="text-[0.975rem] text-charcoal/80">
                           {b.text}
@@ -206,7 +237,7 @@ export default async function Home() {
                     <h3 className="font-serif text-xl text-olive sm:text-2xl">{project.name}</h3>
                     <p className="mt-3 text-[0.975rem] text-charcoal/75">{project.description}</p>
                     <p className="mt-4 text-sm text-charcoal/60">
-                      <span className="font-semibold text-clay">Tech stack:</span>{" "}
+                      <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-clay">Tech stack</span>{" "}
                       {project.techStack}
                     </p>
                     <div className="mt-6 pt-1">
@@ -224,14 +255,14 @@ export default async function Home() {
             <div className="mt-14 space-y-8">
               {aiProjects.map((project) => (
                 <Reveal key={project.slug} id={`case-${project.slug}`} className="scroll-mt-24">
-                  <article className="rounded-card border border-sage/20 bg-cream p-6 shadow-paper sm:p-8">
+                  <article className="rounded-card border border-ember/20 bg-cream p-6 shadow-paper sm:p-8">
                     <p className="eyebrow mb-3">Case Study</p>
                     <h3 className="font-serif text-2xl text-olive">{project.name}</h3>
                     <p className="mt-4 text-[1rem] leading-relaxed text-charcoal/80">
                       {project.caseStudy}
                     </p>
                     <p className="mt-5 text-sm text-charcoal/60">
-                      <span className="font-semibold text-clay">Tech stack:</span>{" "}
+                      <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-clay">Tech stack</span>{" "}
                       {project.techStack}
                     </p>
                   </article>
@@ -255,7 +286,7 @@ export default async function Home() {
               {certifications.map((cert, i) => (
                 <Reveal key={i} delay={i * 90}>
                   <article className="flex items-start gap-4 rounded-card border border-charcoal/5 bg-paper p-6 shadow-paper">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sage/15 text-sage">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ember/10 text-ember">
                       <CertificateIcon className="h-6 w-6" />
                     </span>
                     <div>
@@ -275,7 +306,7 @@ export default async function Home() {
         {/* ---------------------------------------------------------------- */}
         {/* CONTACT */}
         {/* ---------------------------------------------------------------- */}
-        <section id="contact" className="scroll-mt-20 bg-olive py-20 text-cream md:py-28">
+        <section id="contact" className="scroll-mt-20 bg-ember py-20 text-cream md:py-28">
           <div className="section-shell max-w-3xl text-center">
             <Reveal>
               <h2 className="font-serif text-3xl text-cream sm:text-4xl">Let&apos;s Connect</h2>
@@ -309,7 +340,7 @@ export default async function Home() {
               <a
                 href={profile.resumeUrl}
                 download
-                className="mt-10 inline-flex items-center justify-center gap-2 rounded-btn bg-cream px-7 py-3 text-[0.95rem] font-semibold text-olive shadow-paper transition-all duration-300 hover:bg-white hover:shadow-paper-lift"
+                className="mt-10 inline-flex items-center justify-center gap-2 rounded-btn bg-cream px-7 py-3 text-[0.95rem] font-semibold text-ember shadow-paper transition-all duration-300 hover:bg-white hover:shadow-paper-lift"
               >
                 Download Resume
                 <DownloadIcon />
@@ -319,7 +350,7 @@ export default async function Home() {
         </section>
 
         {/* FOOTER */}
-        <footer className="bg-olive-dark py-8 text-center text-sm text-cream/60">
+        <footer className="bg-ember-dark py-8 text-center font-mono text-xs uppercase tracking-[0.18em] text-cream/70">
           Designed with care — © 2026 Deeksha Hulyal
         </footer>
       </main>
@@ -349,15 +380,5 @@ function ContactRow({
       </span>
       <span className="break-all text-[0.95rem] text-cream/85">{label}</span>
     </a>
-  );
-}
-
-function LeafSilhouette({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 200 200" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M100 10C60 40 30 80 30 120c0 40 30 70 70 70V10z" opacity="0.9" />
-      <path d="M100 10c40 30 70 70 70 110 0 40-30 70-70 70V10z" opacity="0.6" />
-      <path d="M100 20v170" stroke="#4A5D42" strokeWidth="1.5" opacity="0.3" />
-    </svg>
   );
 }

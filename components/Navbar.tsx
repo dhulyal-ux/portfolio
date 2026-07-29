@@ -25,16 +25,18 @@ export default function Navbar() {
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled
-          ? "border-charcoal/5 bg-cream/80 backdrop-blur-md"
-          : "border-transparent bg-cream/40 backdrop-blur-sm"
+        scrolled || open
+          ? "border-charcoal/5 bg-cream/85 backdrop-blur-md"
+          : "border-transparent bg-transparent"
       }`}
     >
       <nav className="section-shell flex h-16 items-center justify-between">
         {/* Initials mark */}
         <a
           href="#top"
-          className="font-serif text-xl font-semibold tracking-tight text-olive"
+          className={`font-serif text-xl font-semibold tracking-tight transition-colors ${
+            scrolled || open ? "text-ember" : "text-cream"
+          }`}
           aria-label="Deeksha Hulyal — back to top"
         >
           DH
@@ -46,7 +48,9 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-charcoal/70 transition-colors hover:text-olive"
+                className={`text-sm font-medium transition-colors hover:text-ember ${
+                  scrolled ? "text-charcoal/70" : "text-cream/85"
+                }`}
               >
                 {link.label}
               </a>
@@ -58,7 +62,9 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="relative z-50 flex h-10 w-10 items-center justify-center rounded-btn text-olive md:hidden"
+          className={`relative z-50 flex h-10 w-10 items-center justify-center rounded-btn transition-colors md:hidden ${
+            scrolled || open ? "text-ember" : "text-cream"
+          }`}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"

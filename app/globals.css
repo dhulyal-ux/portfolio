@@ -26,7 +26,7 @@
   }
 
   ::selection {
-    background: #8a9a7e;
+    background: #c85a2c;
     color: #f5f1e8;
   }
 }
@@ -36,26 +36,26 @@
     @apply mx-auto w-full max-w-content px-6 sm:px-8;
   }
 
-  /* Primary action — sage fill, cream text */
+  /* Primary action — ember fill, cream text */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-btn bg-sage px-6 py-3
+    @apply inline-flex items-center justify-center gap-2 rounded-btn bg-ember px-6 py-3
       text-[0.95rem] font-medium text-cream shadow-paper transition-all duration-300
-      hover:bg-sage-dark hover:shadow-paper-lift focus-visible:outline-none
-      focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2
+      hover:bg-ember-dark hover:shadow-paper-lift focus-visible:outline-none
+      focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2
       focus-visible:ring-offset-cream;
   }
 
   /* Secondary action — outlined */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-btn border border-olive/40
-      bg-transparent px-6 py-3 text-[0.95rem] font-medium text-olive transition-all
-      duration-300 hover:border-olive hover:bg-olive/5 focus-visible:outline-none
-      focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2
+    @apply inline-flex items-center justify-center gap-2 rounded-btn border border-charcoal/25
+      bg-transparent px-6 py-3 text-[0.95rem] font-medium text-charcoal transition-all
+      duration-300 hover:border-ember hover:text-ember focus-visible:outline-none
+      focus-visible:ring-2 focus-visible:ring-ember focus-visible:ring-offset-2
       focus-visible:ring-offset-cream;
   }
 
   .eyebrow {
-    @apply font-sans text-xs font-semibold uppercase tracking-[0.18em] text-sage;
+    @apply font-mono text-xs font-medium uppercase tracking-[0.2em] text-ember;
   }
 }
 
